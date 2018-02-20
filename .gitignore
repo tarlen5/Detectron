@@ -22,3 +22,6 @@ lib/datasets/data/*
 
 # Generated C files
 lib/utils/cython_*.c
+
+# emacs temporary files:
+*~
