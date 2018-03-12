@@ -124,7 +124,7 @@ def main(args):
                 ' \ Note: inference on the first image will be slower than the '
                 'rest (caches and auto-tuning need to warm up)'
             )
-
+            
         vis_utils.vis_one_image(
             im[:, :, ::-1],  # BGR -> RGB for visualization
             im_name,
@@ -136,7 +136,8 @@ def main(args):
             box_alpha=0.3,
             show_class=True,
             thresh=0.7,
-            kp_thresh=2
+            kp_thresh=2,
+            ext='png'
         )
 
 
