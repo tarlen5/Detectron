@@ -165,7 +165,7 @@ def main(args):
                 thresh=BOX_THRESH,
                 kp_thresh=KEY_THRESH
             )
-            
+
         boxes = cls_boxes[1]
         keypoints = cls_keyps[1]
 
