@@ -168,7 +168,7 @@ def main(args):
 
         boxes = cls_boxes[1]
         keypoints = cls_keyps[1]
-
+        
         if save_threshold:
             # Only save keypoints and boxes that passed threshold:
             new_boxes = []
