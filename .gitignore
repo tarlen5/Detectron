@@ -10,7 +10,7 @@ __pycache__/
 *.so
 
 # Distribution / packaging
-lib/build/
+build/
 *.egg-info/
 *.egg
 
@@ -20,11 +20,15 @@ lib/build/
 *.swp
 
 # Dataset symlinks
-lib/datasets/data/*
-!lib/datasets/data/README.md
+detectron/datasets/data/*
+!detectron/datasets/data/README.md
 
 # Generated C files
 lib/utils/cython_*.c
+detectron/utils/cython_*.c
 
 # emacs temporary files:
 *~
+
+
+
