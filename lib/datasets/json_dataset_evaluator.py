@@ -228,7 +228,7 @@ def _log_detection_eval_metrics(json_dataset, coco_eval):
         precision = coco_eval.eval['precision'][
             ind_lo:(ind_hi + 1), :, cls_ind - 1, 0, 2]
         ap = np.mean(precision[precision > -1])
-        logger.info('{:.1f}'.format(100 * ap))
+        logger.info('cls_idx: {}, map: {:.2f}'.format(cls_ind, 100 * ap))
     logger.info('~~~~ Summary metrics ~~~~')
     coco_eval.summarize()
 

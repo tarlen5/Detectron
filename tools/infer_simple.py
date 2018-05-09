@@ -83,6 +83,20 @@ def parse_args():
         type=str
     )
     parser.add_argument(
+        '--model-thresh',
+        dest='model_thresh',
+        help='scoring threshold to show box',
+        default=0.7,
+        type=float
+    )
+    parser.add_argument(
+        '--sports-dset',
+        action='store_true',
+        default=False,
+        dest='sports_dset',
+        help='Use dummy sports dataset to lookup class names'
+    )
+    parser.add_argument(
         'im_or_folder', help='image or folder of images', default=None
     )
     if len(sys.argv) == 1:
@@ -98,7 +112,7 @@ def main(args):
     args.weights = cache_url(args.weights, cfg.DOWNLOAD_CACHE)
     assert_and_infer_cfg(cache_urls=False)
     model = infer_engine.initialize_model_from_cfg(args.weights)
-    dummy_coco_dataset = dummy_datasets.get_coco_dataset()
+    dummy_dataset = dummy_datasets.get_coco_dataset(person_ball_only=args.sports_dset)
 
     if os.path.isdir(args.im_or_folder):
         im_list = glob.iglob(args.im_or_folder + '/*.' + args.image_ext)
@@ -133,10 +147,10 @@ def main(args):
             cls_boxes,
             cls_segms,
             cls_keyps,
-            dataset=dummy_coco_dataset,
+            dataset=dummy_dataset,
             box_alpha=0.3,
             show_class=True,
-            thresh=0.7,
+            thresh=args.model_thresh,
             kp_thresh=2,
             ext='png'
         )
@@ -147,3 +161,4 @@ if __name__ == '__main__':
     utils.logging.setup_logging(__name__)
     args = parse_args()
     main(args)
+    

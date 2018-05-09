@@ -37,6 +37,18 @@ RAW_DIR = 'raw_dir'
 
 # Available datasets
 DATASETS = {
+    'bhjc_20180123_person_ball_v1.1': {
+        IM_DIR:
+            _DATA_DIR + '/coco/bhjc_20180123/images/',
+        ANN_FN:
+            _DATA_DIR + '/coco/bhjc_20180123/annotations/person_ball_labels_v1.1_train.json'
+    },
+    'bhjc_20180123_person_ball_v1.1_minival': {
+        IM_DIR:
+            _DATA_DIR + '/coco/bhjc_20180123/images/',
+        ANN_FN:
+            _DATA_DIR + '/coco/bhjc_20180123/annotations/person_ball_labels_v1.1_test.json'
+    },
     'cityscapes_fine_instanceonly_seg_train': {
         IM_DIR:
             _DATA_DIR + '/cityscapes/images',
